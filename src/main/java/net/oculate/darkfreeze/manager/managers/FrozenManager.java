@@ -21,6 +21,7 @@ public class FrozenManager extends Manager {
 
     public void freezePlayer(Player player) {
         frozenPlayers.add(player.getUniqueId());
+        plugin.getManagerHandler().getSnapshotManager().takeSnapshot(player);
         plugin.getManagerHandler().getPlayerManager().clearPlayerPotionEffects(player);
 
         player.sendMessage(plugin.getManagerHandler().getLangFile().getString("FROZEN.PLAYER.FROZEN"));
@@ -28,20 +29,15 @@ public class FrozenManager extends Manager {
 
         player.getInventory().clear();
         player.updateInventory();
-
-        //TODO: Make this open an inventory
     }
 
     public void unfreezePlayer(Player player) {
         frozenPlayers.remove(player.getUniqueId());
-        //TODO: Make this restore inventory
+        plugin.getManagerHandler().getSnapshotManager().restorePlayer(player);
 
         player.sendMessage(plugin.getManagerHandler().getLangFile().getString("FROZEN.PLAYER.UNFROZEN"));
-        player.setWalkSpeed(1.0F /* TODO: Make this get stored walk speeds */);
 
-        //TODO: Make this restore inventory's
         player.updateInventory();
-
         player.closeInventory();
     }
 

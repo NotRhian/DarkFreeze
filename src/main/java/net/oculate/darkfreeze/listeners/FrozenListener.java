@@ -40,7 +40,7 @@ public class FrozenListener implements Listener {
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if(event.getDamager() instanceof Player) {
             if(plugin.getManagerHandler().getFrozenManager().isFrozen(event.getEntity().getUniqueId())) {
-                event.getDamager().sendMessage("Player is frozen"); //TODO: Config
+                event.getDamager().sendMessage(plugin.getManagerHandler().getLangFile().getString("FROZEN.INTERACT.CANT_DAMAGE_WHILE_FROZEN"));
                 event.setCancelled(true);
             }
         }
@@ -50,7 +50,7 @@ public class FrozenListener implements Listener {
     public void onBlockBreakEvent(BlockBreakEvent event) {
         if (event.getPlayer() != null) {
             if (plugin.getManagerHandler().getFrozenManager().isFrozen(event.getPlayer().getUniqueId())) {
-                event.getPlayer().sendMessage("Can't do that while frozen!");
+                event.getPlayer().sendMessage(plugin.getManagerHandler().getLangFile().getString("FROZEN.INTERACT.CANT_BREAK_BLOCKS_WHILE_FROZEN"));
                 event.setCancelled(true);
             }
         }
@@ -60,7 +60,7 @@ public class FrozenListener implements Listener {
     public void onBlockPlaceEvent(BlockPlaceEvent event) {
         if (event.getPlayer() != null) {
             if (plugin.getManagerHandler().getFrozenManager().isFrozen(event.getPlayer().getUniqueId())) {
-                event.getPlayer().sendMessage("Can't do that while frozen!");
+                event.getPlayer().sendMessage(plugin.getManagerHandler().getLangFile().getString("FROZEN.INTERACT.CANT_PLACE_BLOCKS_WHILE_FROZEN"));
                 event.setCancelled(true);
             }
         }

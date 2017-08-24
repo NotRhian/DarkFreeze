@@ -14,3 +14,8 @@ FROZEN:
   PLAYER:
     FROZEN: "&cYou have been frozen! Do not logout!"
     UNFROZEN: "&aYou have been unfrozen!"
+  INTERACT:
+    CANT_DAMAGE_WHILE_FROZEN: "&cYou cannot damage that player while they are frozen!"
+    CANT_PLACE_BLOCKS_WHILE_FROZEN: "&cYou cannot place blocks while frozen!"
+    CANT_BREAK_BLOCKS_WHILE_FROZEN: "&cYou cannot break blocks while frozen!"
+#########################################################################################
