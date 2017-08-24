@@ -1,0 +1,6 @@
+name: DarkFreeze
+version: ${project.version}
+main: net.oculate.darkfreeze.DarkFreeze
+authors: [Rhian]
+description: Freeze plugin for the Oculate Network
+website: www.oculate.net
