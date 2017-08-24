@@ -4,23 +4,34 @@ import lombok.Getter;
 import lombok.Setter;
 import net.oculate.darkfreeze.DarkFreeze;
 import net.oculate.darkfreeze.manager.managers.FrozenManager;
+import net.oculate.darkfreeze.manager.managers.PlayerManager;
+import net.oculate.darkfreeze.utils.ConfigBuilder;
 
 @Getter @Setter
 public class ManagerHandler {
-    private DarkFreeze plugin;
 
+    private DarkFreeze plugin;
     private FrozenManager frozenManager;
+    private PlayerManager playerManager;
+    private ConfigBuilder configFile, langFile;
 
     public ManagerHandler(DarkFreeze plugin) {
         this.plugin = plugin;
         loadManagers();
+        loadConfigs();
     }
 
-    private void loadManagers() {
+    private void loadManagers() { // This loads managers
         frozenManager = new FrozenManager(plugin);
+        playerManager = new PlayerManager(plugin);
     }
 
-    public void disable() {
-        frozenManager.unfreezeAll();
+    private void loadConfigs() { // This loads configuration files
+        langFile = new ConfigBuilder(plugin, "lang");
+        configFile = new ConfigBuilder(plugin, "config");
+    }
+
+    public void disable() { // This is for when the server shuts down
+        this.frozenManager.unfreezeAll();
     }
 }

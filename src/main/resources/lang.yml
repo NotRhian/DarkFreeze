@@ -1,0 +1,16 @@
+#########################################################################################
+# MISC
+#########################################################################################
+NO_PERMISSION: "&cNo permission."
+PLAYER_NOT_FOUND: "&cPlayer not found."
+INVALID_ARGUMENTS: "&cInvalid arguments."
+#########################################################################################
+# FROZEN
+#########################################################################################
+FROZEN:
+  STAFF:
+    FROZEN: "&d%player% &ehas been frozen by &d%sender%"
+    UNFROZEN: "&d%player% &ehas been unfrozen by &d%sender%"
+  PLAYER:
+    FROZEN: "&cYou have been frozen! Do not logout!"
+    UNFROZEN: "&aYou have been unfrozen!"
