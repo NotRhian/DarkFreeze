@@ -6,7 +6,7 @@ description: Freeze plugin for the Oculate Network
 website: www.oculate.net
 commands:
   freeze:
-    usage: "/freeze <PlayerSnapshot>"
+    usage: "/freeze <Player>"
     aliases: [ss]
 permissions:
   oculate.staff.freeze:
