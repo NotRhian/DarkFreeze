@@ -15,7 +15,7 @@ public class PlayerListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler //TODO: Make it broadcast if a player disconnect
+    @EventHandler
     public void onPlayerDisconnectEvent(PlayerQuitEvent event) {
         if (event.getPlayer() != null) {
             if (plugin.getManagerHandler().getFrozenManager().isFrozen(event.getPlayer().getUniqueId())) {

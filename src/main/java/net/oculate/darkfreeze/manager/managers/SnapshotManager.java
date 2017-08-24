@@ -27,6 +27,8 @@ public class SnapshotManager extends Manager {
             player.getInventory().clear();
             player.getInventory().setContents(playerSnapshot.getMainContent());
             player.getInventory().setArmorContents(playerSnapshot.getArmorContent());
+            player.setHealth(playerSnapshot.getHealth());
+            player.setSaturation(playerSnapshot.getFoodLevel());
             player.setWalkSpeed(playerSnapshot.getWalkSpeed());
             player.addPotionEffects(playerSnapshot.getPotionEffects());
             player.updateInventory();

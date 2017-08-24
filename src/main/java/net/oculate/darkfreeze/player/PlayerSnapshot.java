@@ -14,11 +14,15 @@ public class PlayerSnapshot {
     private ItemStack[] armorContent;
     private Collection<PotionEffect> potionEffects;
     private float walkSpeed;
+    private double health;
+    private int foodLevel;
 
     public PlayerSnapshot(Player player) {
         this.mainContent = player.getInventory().getContents();
         this.armorContent = player.getInventory().getArmorContents();
         this.potionEffects = player.getActivePotionEffects();
         this.walkSpeed = player.getWalkSpeed();
+        this.health = player.getHealth();
+        this.foodLevel = player.getFoodLevel();
     }
 }
