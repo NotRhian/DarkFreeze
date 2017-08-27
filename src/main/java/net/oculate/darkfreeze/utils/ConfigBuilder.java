@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 public class ConfigBuilder {
-
+    // Credits to BizarreAlex
     private File file;
     private YamlConfiguration configuration;
 
