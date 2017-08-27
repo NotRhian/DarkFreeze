@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerListener implements Listener {
@@ -32,6 +33,15 @@ public class PlayerListener implements Listener {
         if (event.getPlayer() != null) {
             if (plugin.getManagerHandler().getFrozenManager().isFrozen(event.getPlayer().getUniqueId())) {
                 plugin.getManagerHandler().getFrozenManager().unfreezePlayer(event.getPlayer());
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerMoveEvent(PlayerMoveEvent event) {
+        if (event.getPlayer() != null) {
+            if (plugin.getManagerHandler().getFrozenManager().isFrozen(event.getPlayer().getUniqueId())) {
+                event.setCancelled(true);
             }
         }
     }

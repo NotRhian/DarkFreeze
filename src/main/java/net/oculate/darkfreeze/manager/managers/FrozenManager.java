@@ -25,8 +25,9 @@ public class FrozenManager extends Manager {
         player.sendMessage(plugin.getManagerHandler().getLangFile().getString("FROZEN.PLAYER.FROZEN"));
         player.getInventory().clear();
         player.updateInventory();
-
-        player.openInventory(plugin.getManagerHandler().getInventoryManager().getFrozenInventory());
+        if (!plugin.getManagerHandler().getConfigFile().getBoolean("DISABLE_FROZEN_INVENTORY")) {
+            player.openInventory(plugin.getManagerHandler().getInventoryManager().getFrozenInventory());
+        }
     }
 
     public void unfreezePlayer(Player player) {
