@@ -3,6 +3,7 @@ package net.oculate.darkfreeze;
 import lombok.Getter;
 import net.oculate.darkfreeze.commands.FreezeCommand;
 import net.oculate.darkfreeze.listeners.FrozenListener;
+import net.oculate.darkfreeze.listeners.InventoryListener;
 import net.oculate.darkfreeze.listeners.PlayerListener;
 import net.oculate.darkfreeze.manager.ManagerHandler;
 import org.bukkit.plugin.PluginManager;
@@ -28,6 +29,7 @@ public class DarkFreeze extends JavaPlugin {
     private void registerListeners() {
         final PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new FrozenListener(this), this);
+        pm.registerEvents(new InventoryListener(this), this);
         pm.registerEvents(new PlayerListener(this), this);
     }
 }

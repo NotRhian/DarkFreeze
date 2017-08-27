@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.oculate.darkfreeze.DarkFreeze;
 import net.oculate.darkfreeze.manager.managers.FrozenManager;
+import net.oculate.darkfreeze.manager.managers.InventoryManager;
 import net.oculate.darkfreeze.manager.managers.PlayerManager;
 import net.oculate.darkfreeze.manager.managers.SnapshotManager;
 import net.oculate.darkfreeze.utils.ConfigBuilder;
@@ -15,6 +16,7 @@ public class ManagerHandler {
     private FrozenManager frozenManager;
     private PlayerManager playerManager;
     private SnapshotManager snapshotManager;
+    private InventoryManager inventoryManager;
     private ConfigBuilder configFile, langFile;
 
     public ManagerHandler(DarkFreeze plugin) {
@@ -27,6 +29,7 @@ public class ManagerHandler {
         frozenManager = new FrozenManager(plugin);
         playerManager = new PlayerManager(plugin);
         snapshotManager = new SnapshotManager(plugin);
+        inventoryManager = new InventoryManager(plugin);
     }
 
     private void loadConfigs() { // This loads configuration files

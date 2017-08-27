@@ -11,11 +11,9 @@ import java.util.UUID;
 public class FrozenManager extends Manager {
 
     private Set<UUID> frozenPlayers;
-    private DarkFreeze plugin;
 
     public FrozenManager(DarkFreeze plugin) {
         super(plugin);
-        this.plugin = plugin; // Clean this up. This is just temp bc im in a rush
         frozenPlayers = new HashSet<>();
     }
 
@@ -25,10 +23,10 @@ public class FrozenManager extends Manager {
         plugin.getManagerHandler().getPlayerManager().clearPlayerPotionEffects(player);
 
         player.sendMessage(plugin.getManagerHandler().getLangFile().getString("FROZEN.PLAYER.FROZEN"));
-        player.setWalkSpeed(0.0F);
-
         player.getInventory().clear();
         player.updateInventory();
+
+        player.openInventory(plugin.getManagerHandler().getInventoryManager().getFrozenInventory());
     }
 
     public void unfreezePlayer(Player player) {

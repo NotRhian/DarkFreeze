@@ -4,7 +4,7 @@ import net.oculate.darkfreeze.DarkFreeze;
 
 public class Manager {
 
-    private DarkFreeze plugin;
+    protected DarkFreeze plugin;
 
     public Manager(DarkFreeze plugin) {
         this.plugin = plugin;
